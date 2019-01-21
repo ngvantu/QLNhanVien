@@ -16,7 +16,7 @@ namespace AutoCheckTicketSystem.Controllers
         {
             ViewBag.Title = "Home Page";
             var a = db.employee.ToList();
-            return View(a);
+            return View();
         }
     }
 }
