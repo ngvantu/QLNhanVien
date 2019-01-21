@@ -1,4 +1,7 @@
-﻿<link id="bootstrap-style" href="css/bootstrap.min.css" rel="stylesheet">
+﻿@using AutoCheckTicketSystem.Models;
+@model List<Employee>
+
+<link id="bootstrap-style" href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
 <link id="base-style" href="css/style.css" rel="stylesheet">
 <link id="base-style-responsive" href="css/style-responsive.css" rel="stylesheet">
@@ -21,161 +24,10 @@
 				</thead>
 
 				<tbody role="alert" aria-live="polite" aria-relevant="all">
-					<tr class="odd">
-						<td class="  sorting_1">Dennis Ji</td>
-						<td class="center ">2012/01/01</td>
-						<td class="center ">Member</td>
-						<td class="center ">
-							<span class="label label-success">Active</span>
-						</td>
-						<td class="center ">
-							<a class="btn btn-success" href="#">
-								<i class="halflings-icon white zoom-in"></i>
-							</a>
-							<a class="btn btn-info" href="#">
-								<i class="halflings-icon white edit"></i>
-							</a>
-							<a class="btn btn-danger" href="#">
-								<i class="halflings-icon white trash"></i>
-							</a>
-						</td>
-					</tr>
-					<tr class="even">
-						<td class="  sorting_1">Dennis Ji</td>
-						<td class="center ">2012/01/01</td>
-						<td class="center ">Member</td>
-						<td class="center ">
-							<span class="label label-success">Active</span>
-						</td>
-						<td class="center ">
-							<a class="btn btn-success" href="#">
-								<i class="halflings-icon white zoom-in"></i>
-							</a>
-							<a class="btn btn-info" href="#">
-								<i class="halflings-icon white edit"></i>
-							</a>
-							<a class="btn btn-danger" href="#">
-								<i class="halflings-icon white trash"></i>
-							</a>
-						</td>
-					</tr>
-					<tr class="odd">
-						<td class="  sorting_1">Dennis Ji</td>
-						<td class="center ">2012/01/01</td>
-						<td class="center ">Member</td>
-						<td class="center ">
-							<span class="label label-success">Active</span>
-						</td>
-						<td class="center ">
-							<a class="btn btn-success" href="#">
-								<i class="halflings-icon white zoom-in"></i>
-							</a>
-							<a class="btn btn-info" href="#">
-								<i class="halflings-icon white edit"></i>
-							</a>
-							<a class="btn btn-danger" href="#">
-								<i class="halflings-icon white trash"></i>
-							</a>
-						</td>
-
-					</tr>
-					<tr class="even">
-						<td class="  sorting_1">Dennis Ji</td>
-						<td class="center ">2012/01/01</td>
-						<td class="center ">Member</td>
-						<td class="center ">
-							<span class="label label-success">Active</span>
-						</td>
-						<td class="center ">
-							<a class="btn btn-success" href="#">
-								<i class="halflings-icon white zoom-in"></i>
-							</a>
-							<a class="btn btn-info" href="#">
-								<i class="halflings-icon white edit"></i>
-							</a>
-							<a class="btn btn-danger" href="#">
-								<i class="halflings-icon white trash"></i>
-							</a>
-						</td>
-					</tr>
-					<tr class="odd">
-						<td class="  sorting_1">Dennis Ji</td>
-						<td class="center ">2012/02/01</td>
-						<td class="center ">Staff</td>
-						<td class="center ">
-							<span class="label label-important">Banned</span>
-						</td>
-						<td class="center ">
-							<a class="btn btn-success" href="#">
-								<i class="halflings-icon white zoom-in"></i>
-							</a>
-							<a class="btn btn-info" href="#">
-								<i class="halflings-icon white edit"></i>
-							</a>
-							<a class="btn btn-danger" href="#">
-								<i class="halflings-icon white trash"></i>
-							</a>
-						</td>
-					</tr>
-					<tr class="even">
-						<td class="  sorting_1">Dennis Ji</td>
-						<td class="center ">2012/02/01</td>
-						<td class="center ">Staff</td>
-						<td class="center ">
-							<span class="label label-important">Banned</span>
-						</td>
-						<td class="center ">
-							<a class="btn btn-success" href="#">
-								<i class="halflings-icon white zoom-in"></i>
-							</a>
-							<a class="btn btn-info" href="#">
-								<i class="halflings-icon white edit"></i>
-							</a>
-							<a class="btn btn-danger" href="#">
-								<i class="halflings-icon white trash"></i>
-							</a>
-						</td>
-					</tr>
-					<tr class="odd">
-						<td class="  sorting_1">Dennis Ji</td>
-						<td class="center ">2012/03/01</td>
-						<td class="center ">Member</td>
-						<td class="center ">
-							<span class="label label-warning">Pending</span>
-						</td>
-						<td class="center ">
-							<a class="btn btn-success" href="#">
-								<i class="halflings-icon white zoom-in"></i>
-							</a>
-							<a class="btn btn-info" href="#">
-								<i class="halflings-icon white edit"></i>
-							</a>
-							<a class="btn btn-danger" href="#">
-								<i class="halflings-icon white trash"></i>
-							</a>
-						</td>
-					</tr>
-					<tr class="even">
-						<td class="  sorting_1">Dennis Ji</td>
-						<td class="center ">2012/03/01</td>
-						<td class="center ">Member</td>
-						<td class="center ">
-							<span class="label label-warning">Pending</span>
-						</td>
-						<td class="center ">
-							<a class="btn btn-success" href="#">
-								<i class="halflings-icon white zoom-in"></i>
-							</a>
-							<a class="btn btn-info" href="#">
-								<i class="halflings-icon white edit"></i>
-							</a>
-							<a class="btn btn-danger" href="#">
-								<i class="halflings-icon white trash"></i>
-							</a>
-						</td>
-					</tr>
-					<tr class="odd">
-						<td class="  sorting_1">Dennis Ji</td>
+					@foreach(var item in Model)
+                    {
+                        <tr class="even">
+						<td class="  sorting_1">@item.FullName</td>
 						<td class="center ">2012/01/21</td>
 						<td class="center ">Staff</td>
 						<td class="center ">
@@ -193,25 +45,8 @@
 							</a>
 						</td>
 					</tr>
-					<tr class="even">
-						<td class="  sorting_1">Dennis Ji</td>
-						<td class="center ">2012/01/21</td>
-						<td class="center ">Staff</td>
-						<td class="center ">
-							<span class="label label-success">Active</span>
-						</td>
-						<td class="center ">
-							<a class="btn btn-success" href="#">
-								<i class="halflings-icon white zoom-in"></i>
-							</a>
-							<a class="btn btn-info" href="#">
-								<i class="halflings-icon white edit"></i>
-							</a>
-							<a class="btn btn-danger" href="#">
-								<i class="halflings-icon white trash"></i>
-							</a>
-						</td>
-					</tr>
+                    }
+					
 				</tbody>
 		</div>
 	</div>
