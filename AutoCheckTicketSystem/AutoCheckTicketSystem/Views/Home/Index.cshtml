@@ -1,4 +1,4 @@
-﻿@using AutoCheckTicketSystem.Models;
+﻿@using AutoCheckTicketSystem.Models.Metadata;
 @model List<Employee>
 
 <link id="bootstrap-style" href="css/bootstrap.min.css" rel="stylesheet">
@@ -28,8 +28,8 @@
                     {
                         <tr class="even">
 						<td class="  sorting_1">@item.FullName</td>
-						<td class="center ">2012/01/21</td>
-						<td class="center ">Staff</td>
+						<td class="center ">@item.Birthday</td>
+						<td class="center ">@item.Role</td>
 						<td class="center ">
 							<span class="label label-success">Active</span>
 						</td>
