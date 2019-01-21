@@ -1,9 +1,9 @@
 ﻿@using AutoCheckTicketSystem.Models.Metadata;
 @model List<Employee>
 
-@{ 
-    Layout = "~/Views/Layouts/AdminLayout.cshtml";
+@{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Layouts/AdminLayout.cshtml";
 }
 
 <div id="content" class="span10">
@@ -29,11 +29,11 @@
                 <table class="table table-striped table-bordered bootstrap-datatable datatable">
                     <thead>
                         <tr>
-                            <th>Username</th>
-                            <th>Date registered</th>
-                            <th>Role</th>
-                            <th>Status</th>
-                            <th>Actions</th>
+                            <th>Họ tên</th>
+                            <th>CMND</th>
+                            <th>Ngày sinh</th>
+                            <th>Ảnh đại diện</th>
+                            <th>Quyền</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,32 +41,24 @@
                         {
                             <tr>
                                 <td>@item.FullName</td>
-                                <td class="center">2012/01/01</td>
-                                <td class="center">Member</td>
+                                <td class="center">@item.Indentity</td>
+                                <td class="center">@item.Birthday</td>
                                 <td class="center">
-                                    <span class="label label-success">Active</span>
+                                    Ảnh đại diện
                                 </td>
+                                <td class="center">@item.Role</td>
                                 <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="halflings-icon white zoom-in"></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="halflings-icon white edit">Sửa</i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="halflings-icon white trash">Xóa</i>
-                                    </a>
+                                    @Html.ActionLink("Chỉnh Sửa", "Edit", new { @EmployeeID = item.EmployeeID }) |;
+                                    @Html.ActionLink("Xóa", "Delete", new { @EmployeeID = item.EmployeeID })
                                 </td>
                             </tr>
                         }
-                       
+
                     </tbody>
                 </table>
             </div>
         </div><!--/span-->
 
     </div><!--/row-->
-
-
-
 </div><!--/.fluid-container-->
+
