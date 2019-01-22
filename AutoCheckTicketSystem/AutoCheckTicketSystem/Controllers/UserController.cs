@@ -18,6 +18,11 @@ namespace AutoCheckTicketSystem.Controllers
         }
 
         [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpGet]
         public ActionResult Edit(int EmployeeID)
         {
             Employee user = db.employee.Where(x => x.EmployeeID == EmployeeID).SingleOrDefault();
