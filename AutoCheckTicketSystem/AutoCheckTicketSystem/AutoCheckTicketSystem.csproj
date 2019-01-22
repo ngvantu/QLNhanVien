@@ -184,12 +184,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201901211014214_IntialDb.cs" />
-    <Compile Include="Migrations\201901211014214_IntialDb.Designer.cs">
-      <DependentUpon>201901211014214_IntialDb.cs</DependentUpon>
+    <Compile Include="Migrations\201901220434536_AutoTickSystem.cs" />
+    <Compile Include="Migrations\201901220434536_AutoTickSystem.Designer.cs">
+      <DependentUpon>201901220434536_AutoTickSystem.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Metadata\Card.cs" />
     <Compile Include="Models\Metadata\Employee.cs" />
+    <Compile Include="Models\Metadata\Customer.cs" />
+    <Compile Include="Models\Metadata\Ticket.cs" />
+    <Compile Include="Models\Metadata\TypeTicket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebAppContext.cs" />
   </ItemGroup>
@@ -238,11 +242,16 @@
     </Content>
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Content\Site.css" />
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Layouts\AdminLayout.cshtml" />
+    <Content Include="Views\Layouts\MainMenu.cshtml" />
+    <Content Include="Views\Layouts\Navbar.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -277,8 +286,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201901211014214_IntialDb.resx">
-      <DependentUpon>201901211014214_IntialDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901220434536_AutoTickSystem.resx">
+      <DependentUpon>201901220434536_AutoTickSystem.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

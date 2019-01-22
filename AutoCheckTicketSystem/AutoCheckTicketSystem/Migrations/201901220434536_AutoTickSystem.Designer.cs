@@ -7,13 +7,13 @@ namespace AutoCheckTicketSystem.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AutoTicketSystem : IMigrationMetadata
+    public sealed partial class AutoTickSystem : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AutoTicketSystem));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AutoTickSystem));
         
         string IMigrationMetadata.Id
         {
-            get { return "201901220240457_AutoTicketSystem"; }
+            get { return "201901220434536_AutoTickSystem"; }
         }
         
         string IMigrationMetadata.Source
