@@ -29,5 +29,17 @@ namespace AutoCheckTicketSystem.Controllers
 
             return View(user);
         }
+
+        [HttpPost]
+        public ActionResult Edit(Employee user)
+        {
+            if(ModelState.IsValid)
+            {
+                //cập nhật.
+                db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
 	}
 }

@@ -41,14 +41,14 @@
                         {
                             <tr>
                                 <td>@item.FullName</td>
-                                <td class="center">@item.Indentity</td>
+                                <td class="center">@item.Identity</td>
                                 <td class="center">@item.Birthday</td>
                                 <td class="center">
                                     Ảnh đại diện
                                 </td>
                                 <td class="center">@item.Role</td>
                                 <td class="center">
-                                    @Html.ActionLink("Chỉnh Sửa", "Edit", new { @EmployeeID = item.EmployeeID }) |;
+                                    @Html.ActionLink("Chỉnh Sửa", "Edit", new { @EmployeeID = item.EmployeeID }) |
                                     @Html.ActionLink("Xóa", "Delete", new { @EmployeeID = item.EmployeeID })
                                 </td>
                             </tr>
