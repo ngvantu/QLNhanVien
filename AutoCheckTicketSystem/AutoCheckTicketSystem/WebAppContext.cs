@@ -14,7 +14,7 @@ namespace AutoCheckTicketSystem
         public DbSet<Employee> employee { get; set; }
         public DbSet<Customer> customer { get; set; }
         public DbSet<Card> card { get; set; }
-        public DbSet<Ticket> ticket { get; set; }
+        public DbSet<Transaction> transactions { get; set; }
         public DbSet<TypeTicket> type { get; set; }
         public WebAppContext() : base("WebAppCon")
         { }
