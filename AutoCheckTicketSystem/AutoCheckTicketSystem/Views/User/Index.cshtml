@@ -39,7 +39,7 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
+                            <tr id="row_@item.EmployeeID">
                                 <td>@item.FullName</td>
                                 <td class="center">@item.Identity</td>
                                 <td class="center">@item.Birthday</td>
@@ -49,7 +49,12 @@
                                 <td class="center">@item.Role</td>
                                 <td class="center">
                                     @Html.ActionLink("Chỉnh Sửa", "Edit", new { @EmployeeID = item.EmployeeID }) |
-                                    @Html.ActionLink("Xóa", "Delete", new { @EmployeeID = item.EmployeeID })
+                                    @Ajax.ActionLink("Xoá", "Delete", new { @EmployeeID = item.EmployeeID }, new AjaxOptions
+                               {
+                                   Confirm = "Bạn có muốn xoá bản ghi này?",
+                                   OnComplete = "$('#row_" + @item.EmployeeID + "').remove()",
+                                   HttpMethod = "Delete"
+                               })
                                 </td>
                             </tr>
                         }

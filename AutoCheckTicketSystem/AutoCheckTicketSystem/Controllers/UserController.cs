@@ -74,7 +74,7 @@ namespace AutoCheckTicketSystem.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
+        [HttpDelete]
         public ActionResult Delete(int EmployeeID)
         {
             Employee user = db.employee.Where(x => x.EmployeeID == EmployeeID).SingleOrDefault();
