@@ -1,6 +1,7 @@
 ﻿using AutoCheckTicketSystem.Models.Metadata;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -24,25 +25,26 @@ namespace AutoCheckTicketSystem.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Employee user)
+        public ActionResult Create(Employee user, HttpPostedFileBase fileUpload)
         {
             //them vao co so du lieu.
             if (ModelState.IsValid)
             {
                 //luu ten cua file.
-                //var fileName = Path.GetFileName(fileUpload.FileName);
+                var fileName = Path.GetFileName(fileUpload.FileName);
                 //luu duong dan cua file.
-                //var path = Path.Combine(Server.MapPath("~/HinhAnhSP"), fileName);
+                var path = Path.Combine(Server.MapPath("~/Content/CssAdmin/img"), fileName);
                 //kiem tra hinh anh da ton tai chua.
-                //if (System.IO.File.Exists(path))
-                //{
-                //    ViewBag.ThongBao = "Hình ảnh đã tồn tại";
-                //}
-                //else
-                //{
-                //    fileUpload.SaveAs(path);
-                //}
-                //sach.AnhBia = fileUpload.FileName;
+                if (System.IO.File.Exists(path))
+                {
+                    ViewBag.ThongBao = "Hình ảnh đã tồn tại";
+                }
+                else
+                {
+                    fileUpload.SaveAs(path);
+                }
+                user.ImageID = fileUpload.FileName;
+                user.IsUsed = true;
                 db.employee.Add(user);
                 db.SaveChanges();
             }
