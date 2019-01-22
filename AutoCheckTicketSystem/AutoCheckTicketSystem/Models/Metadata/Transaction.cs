@@ -6,7 +6,7 @@ using System.Web;
 
 namespace AutoCheckTicketSystem.Models.Metadata
 {
-    public class Ticket
+    public class Transaction
     {
         [Key]
         public int TicketID { get; set; }
