@@ -30,7 +30,7 @@
                     <thead>
                         <tr>
                             <th>Username</th>
-                            <th>Date registered</th>
+                            <th>Birthday</th>
                             <th>Role</th>
                             <th>Status</th>
                             <th>Actions</th>
@@ -41,20 +41,24 @@
                         {
                             <tr>
                                 <td>@item.FullName</td>
-                                <td class="center">2012/01/01</td>
-                                <td class="center">Member</td>
+                                <td class="center">@item.Birthday</td>
+                                <td class="center">@item.Role</td>
                                 <td class="center">
+                                    @if (@item.IsUsed) {
                                     <span class="label label-success">Active</span>
+                                    } else {
+                                    <span class="label label-success">Inactive</span>
+                                    }
                                 </td>
                                 <td class="center">
                                     <a class="btn btn-success" href="#">
                                         <i class="halflings-icon white zoom-in"></i>
                                     </a>
                                     <a class="btn btn-info" href="#">
-                                        <i class="halflings-icon white edit">Sửa</i>
+                                        <i class="halflings-icon white edit"></i>
                                     </a>
                                     <a class="btn btn-danger" href="#">
-                                        <i class="halflings-icon white trash">Xóa</i>
+                                        <i class="halflings-icon white trash"></i>
                                     </a>
                                 </td>
                             </tr>
