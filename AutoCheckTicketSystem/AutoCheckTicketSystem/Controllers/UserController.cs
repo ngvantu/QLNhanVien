@@ -18,6 +18,38 @@ namespace AutoCheckTicketSystem.Controllers
         }
 
         [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Employee user)
+        {
+            //them vao co so du lieu.
+            if (ModelState.IsValid)
+            {
+                //luu ten cua file.
+                //var fileName = Path.GetFileName(fileUpload.FileName);
+                //luu duong dan cua file.
+                //var path = Path.Combine(Server.MapPath("~/HinhAnhSP"), fileName);
+                //kiem tra hinh anh da ton tai chua.
+                //if (System.IO.File.Exists(path))
+                //{
+                //    ViewBag.ThongBao = "Hình ảnh đã tồn tại";
+                //}
+                //else
+                //{
+                //    fileUpload.SaveAs(path);
+                //}
+                //sach.AnhBia = fileUpload.FileName;
+                db.employee.Add(user);
+                db.SaveChanges();
+            }
+            return View();
+        }
+
+        [HttpGet]
         public ActionResult Edit(int EmployeeID)
         {
             Employee user = db.employee.Where(x => x.EmployeeID == EmployeeID).SingleOrDefault();
@@ -39,6 +71,15 @@ namespace AutoCheckTicketSystem.Controllers
                 db.Entry(user).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
             }
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int EmployeeID)
+        {
+            Employee user = db.employee.Where(x => x.EmployeeID == EmployeeID).SingleOrDefault();
+            user.IsUsed = false;
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 	}
