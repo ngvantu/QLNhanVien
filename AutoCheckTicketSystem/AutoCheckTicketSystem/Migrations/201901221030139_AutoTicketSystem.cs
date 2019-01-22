@@ -3,7 +3,7 @@ namespace AutoCheckTicketSystem.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AutoTickSystem : DbMigration
+    public partial class AutoTicketSystem : DbMigration
     {
         public override void Up()
         {
@@ -50,18 +50,21 @@ namespace AutoCheckTicketSystem.Migrations
                 .PrimaryKey(t => t.EmployeeID);
             
             CreateTable(
-                "dbo.Tickets",
+                "dbo.Transactions",
                 c => new
                     {
-                        TicketID = c.Int(nullable: false, identity: true),
+                        TransID = c.Int(nullable: false, identity: true),
                         From = c.DateTime(nullable: false, precision: 0),
                         To = c.DateTime(nullable: false, precision: 0),
                         IsUsed = c.Boolean(nullable: false),
                         TypeID = c.Int(nullable: false),
+                        Employee_EmployeeID = c.Int(),
                     })
-                .PrimaryKey(t => t.TicketID)
+                .PrimaryKey(t => t.TransID)
+                .ForeignKey("dbo.Employees", t => t.Employee_EmployeeID)
                 .ForeignKey("dbo.TypeTickets", t => t.TypeID, cascadeDelete: true)
-                .Index(t => t.TypeID);
+                .Index(t => t.TypeID)
+                .Index(t => t.Employee_EmployeeID);
             
             CreateTable(
                 "dbo.TypeTickets",
@@ -77,14 +80,16 @@ namespace AutoCheckTicketSystem.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Tickets", "TypeID", "dbo.TypeTickets");
+            DropForeignKey("dbo.Transactions", "TypeID", "dbo.TypeTickets");
             DropForeignKey("dbo.Cards", "TypeID", "dbo.TypeTickets");
+            DropForeignKey("dbo.Transactions", "Employee_EmployeeID", "dbo.Employees");
             DropForeignKey("dbo.Cards", "CusID", "dbo.Customers");
-            DropIndex("dbo.Tickets", new[] { "TypeID" });
+            DropIndex("dbo.Transactions", new[] { "Employee_EmployeeID" });
+            DropIndex("dbo.Transactions", new[] { "TypeID" });
             DropIndex("dbo.Cards", new[] { "TypeID" });
             DropIndex("dbo.Cards", new[] { "CusID" });
             DropTable("dbo.TypeTickets");
-            DropTable("dbo.Tickets");
+            DropTable("dbo.Transactions");
             DropTable("dbo.Employees");
             DropTable("dbo.Customers");
             DropTable("dbo.Cards");

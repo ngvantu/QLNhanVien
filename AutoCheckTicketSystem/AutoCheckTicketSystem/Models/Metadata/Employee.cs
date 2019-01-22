@@ -22,5 +22,7 @@ namespace AutoCheckTicketSystem.Models.Metadata
         public bool IsUsed { get; set; }
         [Display(Name = "Quyền")]
         public string Role { get; set; }
+
+        public ICollection<Transaction> Transactions { get; set; }
     }
 }

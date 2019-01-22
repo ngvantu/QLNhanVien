@@ -187,15 +187,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201901220434536_AutoTickSystem.cs" />
-    <Compile Include="Migrations\201901220434536_AutoTickSystem.Designer.cs">
-      <DependentUpon>201901220434536_AutoTickSystem.cs</DependentUpon>
+    <Compile Include="Migrations\201901221030139_AutoTicketSystem.cs" />
+    <Compile Include="Migrations\201901221030139_AutoTicketSystem.Designer.cs">
+      <DependentUpon>201901221030139_AutoTicketSystem.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Metadata\Card.cs" />
     <Compile Include="Models\Metadata\Employee.cs" />
     <Compile Include="Models\Metadata\Customer.cs" />
-    <Compile Include="Models\Metadata\Ticket.cs" />
+    <Compile Include="Models\Metadata\Transaction.cs" />
     <Compile Include="Models\Metadata\TypeTicket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebAppContext.cs" />
@@ -453,8 +453,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201901220434536_AutoTickSystem.resx">
-      <DependentUpon>201901220434536_AutoTickSystem.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901221030139_AutoTicketSystem.resx">
+      <DependentUpon>201901221030139_AutoTicketSystem.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -16,6 +16,6 @@ namespace AutoCheckTicketSystem.Models.Metadata
         public int Price { get; set; }
 
         public ICollection<Card> Cards { get; set; }
-        public ICollection<Ticket> Tickets { get; set; }
+        public ICollection<Transaction> Tickets { get; set; }
     }
 }

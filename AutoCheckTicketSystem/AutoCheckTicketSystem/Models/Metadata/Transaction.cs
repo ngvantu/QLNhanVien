@@ -6,10 +6,10 @@ using System.Web;
 
 namespace AutoCheckTicketSystem.Models.Metadata
 {
-    public class Ticket
+    public class Transaction
     {
         [Key]
-        public int TicketID { get; set; }
+        public int TransID { get; set; }
         public DateTime From { get; set; }
         public DateTime To { get; set; }
         public bool IsUsed { get; set; }
