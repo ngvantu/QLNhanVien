@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Layouts/AdminLayout.cshtml";
+    var imageID = ViewBag.ImageID;
 }
 
 <h2>Chỉnh sửa thông tin</h2>
@@ -65,8 +66,8 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.ImageID, new { @class = "control-label col-md-2" })
                                 <div class="col-md-10">
-                                    <img src="~/Content/CssAdmin/img/model.ImageID" style="width:100px;height:100px" />
                                    
+                                    <img src="~/Content/CssAdmin/img/@Model.ImageID" style="width:100px;height:100px" />
                                     @Html.ValidationMessageFor(model => model.ImageID)
                                 </div>
                             </div>

@@ -13,7 +13,7 @@ namespace AutoCheckTicketSystem.Controllers
         // GET: /User/
         public ActionResult Index()
         {
-            var listUser = db.employee.ToList();
+            var listUser = db.employee.Where(x=>x.IsUsed == true).ToList();
             return View(listUser);
         }
 
@@ -58,7 +58,7 @@ namespace AutoCheckTicketSystem.Controllers
                 Response.StatusCode = 404;
                 return null;
             }
-
+            ViewBag.ImageID = user.ImageID;
             return View(user);
         }
 
