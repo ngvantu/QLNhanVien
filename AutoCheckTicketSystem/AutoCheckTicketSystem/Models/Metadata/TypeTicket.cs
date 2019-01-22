@@ -10,7 +10,9 @@ namespace AutoCheckTicketSystem.Models.Metadata
     {
         [Key]
         public int TypeID { get; set; }
+        [Display(Name = "Loại vé")]
         public string TypeName { get; set; }
+        [Display(Name = "Giá tiền")]
         public int Price { get; set; }
 
         public ICollection<Card> Cards { get; set; }

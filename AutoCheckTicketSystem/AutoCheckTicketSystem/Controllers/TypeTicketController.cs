@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoCheckTicketSystem.Models.Metadata;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,6 +15,19 @@ namespace AutoCheckTicketSystem.Controllers
         public ActionResult Index()
         {
             return View(db.type.ToList());
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int TypeID)
+        {
+            TypeTicket type = db.type.Where(x => x.TypeID == TypeID).SingleOrDefault();
+            if (type == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+
+            return View(type);
         }
     }
 }
