@@ -3,7 +3,7 @@ namespace AutoCheckTicketSystem.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class IntialDb : DbMigration
+    public partial class AutoTicketSystem : DbMigration
     {
         public override void Up()
         {
@@ -14,7 +14,7 @@ namespace AutoCheckTicketSystem.Migrations
                         EmployeeID = c.Int(nullable: false, identity: true),
                         FullName = c.String(unicode: false),
                         Birthday = c.DateTime(nullable: false, precision: 0),
-                        Indentity = c.String(unicode: false),
+                        Identity = c.String(unicode: false),
                         ImageID = c.String(unicode: false),
                         IsUsed = c.Boolean(nullable: false),
                         Role = c.String(unicode: false),
