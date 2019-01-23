@@ -84,5 +84,13 @@ namespace AutoCheckTicketSystem.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+        public string ProcessUpload(HttpPostedFileBase file)
+        {
+
+            file.SaveAs(Server.MapPath("~/Content/CssAdmin/img/" + file.FileName));
+            return "/Content/CssAdmin/img/" + file.FileName;
+        }
 	}
 }
