@@ -1,9 +1,11 @@
 ﻿using AutoCheckTicketSystem.Models.Metadata;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList.Mvc;
 
 namespace AutoCheckTicketSystem.Controllers
 {
@@ -11,9 +13,11 @@ namespace AutoCheckTicketSystem.Controllers
     {
         WebAppContext db = new WebAppContext();
         // GET: Customer
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            return View(db.customer.ToList());
+            int pageNum = (page ?? 1);
+            int pageSize = 1;      // sô customer trên 1 trang
+            return View(db.customer.OrderBy(n=>n.CusID).ToPagedList(pageNum, pageSize));
         }
 
         [HttpGet]

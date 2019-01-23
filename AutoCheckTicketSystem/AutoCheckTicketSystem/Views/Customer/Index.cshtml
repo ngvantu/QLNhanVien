@@ -1,5 +1,6 @@
 ﻿@using AutoCheckTicketSystem.Models.Metadata;
-@model List<Customer>
+@using PagedList.Mvc;
+@model PagedList.PagedList<AutoCheckTicketSystem.Models.Metadata.Customer>
 
 @{
     ViewBag.Title = "Index";
@@ -40,29 +41,45 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                        <tr id="row_@item.CusID">
-                            <td>@item.FullName</td>
+                            <tr id="row_@item.CusID">
+                                <td>@item.FullName</td>
 
-                            <td class="center">@item.Birthday</td>
-                            <td class="center">@item.Email</td>
-                            <td class="center">@item.PhoneNumber</td>
-                            <td class="center">@item.Identity</td>
-                            <td class="center">
-                                @Html.ActionLink("Chỉnh Sửa", "Edit", new { @CusID = item.CusID }) |
-                                @Ajax.ActionLink("Xoá", "Delete", new { @CusID = item.CusID }, new AjaxOptions
-                           {
-                               Confirm = "Bạn có muốn xoá bản ghi này?",
-                               OnComplete = "$('#row_" + @item.CusID + "').remove()",
-                               HttpMethod = "Delete"
-                           })
-                            </td>
-                        </tr>
+                                <td class="center">@item.Birthday</td>
+                                <td class="center">@item.Email</td>
+                                <td class="center">@item.PhoneNumber</td>
+                                <td class="center">@item.Identity</td>
+                                <td class="center">
+                                    @Html.ActionLink("Chỉnh Sửa", "Edit", new { @CusID = item.CusID }) |
+                                    @Ajax.ActionLink("Xoá", "Delete", new { @CusID = item.CusID }, new AjaxOptions
+                               {
+                                   Confirm = "Bạn có muốn xoá bản ghi này?",
+                                   OnComplete = "$('#row_" + @item.CusID + "').remove()",
+                                   HttpMethod = "Delete"
+                               })
+                                </td>
+                            </tr>
                         }
 
                     </tbody>
+
+
                 </table>
+                <div>
+                    @*Tạo link liên kêt*@
+                    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+                    <div class="MenuPage">
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+                    </div>
+                </div>
             </div>
         </div><!--/span-->
 
     </div><!--/row-->
 </div><!--/.fluid-container-->
+
+
+<style>
+    .MenuPage li{
+        display: inline;
+    }
+</style>
