@@ -35,7 +35,6 @@
                             <th>Ngày sinh</th>
                             <th>Ảnh đại diện</th>
                             <th>Quyền</th>
-                            <th>Tình trạng</th>
                             <th>Tác vụ</th>
 
                         </tr>
@@ -51,16 +50,6 @@
                                     <img src="~/Content/CssAdmin/img/@item.ImageID" style="width:100px;height:100px" />
                                 </td>
                                 <td class="center">@item.Role</td>
-                                <td>
-                                    @if(@item.IsUsed == true)
-                                    {
-                                        <label>Hoạt động</label>
-                                    }
-                                    else
-                                    {
-                                        <label>Tạm khóa</label>
-                                    }
-                                </td>
                                 <td class="center">
                                     @Html.ActionLink("Chỉnh Sửa", "Edit", new { @EmployeeID = item.EmployeeID }) |
                                     @Ajax.ActionLink("Xoá", "Delete", new { @EmployeeID = item.EmployeeID }, new AjaxOptions

@@ -34,19 +34,17 @@
                             <th>Hạn sử dụng</th>
                             <th>Tình trạng</th>
                             <th>Loại</th>
-                            
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr id="row_@item.TicketID">
-                                <td>@item.TicketID</td>
+                            <tr id="row_@item.TransID">
+                                <td>@item.TransID</td>
 
                                 <td class="center">@item.From</td>
                                 <td class="center">@item.To</td>
                                 
-                                <td class="center">@item.TypeID</td>
 
                                 <td>
                                     @if (@item.IsUsed == true)
@@ -58,15 +56,8 @@
                                         <label>Đã sử dụng</label>
                                     }
                                 </td>
-                                <td class="center">
-                                    @Html.ActionLink("Chỉnh Sửa", "Edit", new { @CusID = item.TicketID }) |
-                                    @Ajax.ActionLink("Xoá", "Delete", new { @CusID = item.TicketID }, new AjaxOptions
-                           {
-                               Confirm = "Bạn có muốn xoá bản ghi này?",
-                               OnComplete = "$('#row_" + @item.TicketID + "').remove()",
-                               HttpMethod = "Delete"
-                           })
-                                </td>
+                                
+                                <td class="center">@item.typeTicket.TypeName</td>
                             </tr>
                         }
 

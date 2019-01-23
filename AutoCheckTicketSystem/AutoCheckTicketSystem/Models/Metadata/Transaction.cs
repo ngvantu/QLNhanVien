@@ -14,5 +14,7 @@ namespace AutoCheckTicketSystem.Models.Metadata
         public DateTime To { get; set; }
         public bool IsUsed { get; set; }
         public int TypeID { get; set; }
+
+        public virtual TypeTicket typeTicket { get; set; }
     }
 }
